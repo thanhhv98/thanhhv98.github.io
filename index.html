@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Form Example</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container mt-5">
+        <form class="score-form" onsubmit="return calculateTotal(event)">
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <label class="font-weight-bold col-form-label col-form-label-lg">Technical Complexity</label>
+              </div>
+                <div class="form-group col-md-3">
+                    <label for="implementation">Implementation</label>
+                    <input type="number" value="0" class="form-control" id="implementation" name="implementation">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="risk">Risk</label>
+                    <input type="number" value="0" class="form-control" id="risk" name="risk">
+                </div>
+               
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <label class="font-weight-bold col-form-label col-form-label-lg">Non-Functional Requirements</label>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="performance">Performance</label>
+                <input type="number" value="0" class="form-control" id="performance" name="performance">
+              </div>
+                <div class="form-group col-md-3">
+                    <label for="security">Security</label>
+                    <input type="number" value="0" class="form-control" id="security" name="security">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="scalability">Scalability</label>
+                    <input type="number" value="0" class="form-control" id="scalability" name="scalability">
+                </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <label class="font-weight-bold col-form-label col-form-label-lg">Testing Effort</label>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="coverage">Coverage</label>
+                <input type="number" value="0" class="form-control" id="coverage" name="coverage">
+            </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <label class="font-weight-bold col-form-label col-form-label-lg">External Dependencies</label>
+              </div>
+                <div class="form-group col-md-3">
+                    <label for="third-party">ThirdParty</label>
+                    <input type="number" value="0" class="form-control" id="third-party" name="third-party">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="team">Team</label>
+                    <input type="number" value="0" class="form-control" id="team" name="team">
+                </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button"  id="clear-btn" class="btn btn-outline-danger">Clear</button>
+              </div>
+              <div class="form-group col-md-3">
+                <label id="score" class="form-control-plaintext alert alert-success">Raw Score: 0</label>
+              </div>
+              <div class="form-group col-md-3">
+                <label id="result" class="form-control-plaintext alert alert-primary">Total Points: 0</label>
+              </div>
+              
+            </div>
+            
+        </form>
+       
+    </div>
+
+    <div class="container mt-2">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Technical Complexity</th>
+            <th>Non-Functional Requirements</th>
+            <th>Testing Effort</th>
+            <th>External Dependencies</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong>Implementation Effort</strong>
+              <br>
+              0: No code changes required
+              <br>
+              1: Simple code change in a single file
+              <br>
+              3: Changes across multiple files, single service
+              <br>
+              5: Changes across multiple services
+              <br>
+              7: Complex architectural changes
+              <br>
+              9: System-wide changes
+              <br>
+              <br>
+              <strong>Technical Risk</strong>
+              <br>
+              0: No risk, well-understood area
+              <br>
+              1: Minor risks, familiar territory
+              <br>
+              3: Moderate risks, some unknowns
+              <br>
+              5: Significant risks, new technology
+              <br>
+              7: High risks, complex integration
+              <br>
+              9: Critical system changes
+            </td>
+            <td>
+              <strong>Performance Impact</strong>
+              <br>
+              0: No impact
+              <br>
+              1: Minor optimization needed
+              <br>
+              3: Significant optimization required
+              <br>
+              5: Major performance considerations
+              <br>
+              <strong>Security Considerations</strong>
+              <br>
+              <br>
+              0: No security impact
+              <br>
+              1: Basic security review needed
+              <br>
+              3: Security-sensitive changes
+              <br>
+              5: Critical security features
+              <br>
+              <br>
+              <strong>Scalability Impact</strong>
+              <br>
+              0: No scalability impact
+              <br>
+              1: Minor scaling considerations
+              <br>
+              3: Significant scaling needs
+              <br>
+              5: Major architectural scaling
+            </td>
+            <td>
+              <strong>Test Coverage</strong>
+              <br>
+              0: No new tests needed
+              <br>
+              1: Unit tests only
+              <br>
+              3: Integration tests needed
+              <br>
+              5: Complex E2E testing required
+            </td>
+            <td>
+              <strong>Third-party Integration</strong>
+              <br>
+              0: No external dependencies
+              <br>
+              1: Single external dependency
+              <br>
+              3: Multiple external dependencies
+              <br>
+              <br>
+              <strong>Team Dependencies</strong>
+              <br>
+              0: No team dependencies
+              <br>
+              1: Single team dependency
+              <br>
+              3: Multiple team dependencies
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="container mt-5">
+      <div class="form-row">
+        <div class="form-group col-md-5">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Score Range</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Raw Score 1-2</td>
+                <td>1 point</td>
+              </tr>
+              <tr>
+                <td>Raw Score 3-4</td>
+                <td>2 points</td>
+              </tr>
+              <tr>
+                <td>Raw Score 5-7</td>
+                <td>3 points</td>
+              </tr>
+              <tr>
+                <td>Raw Score 8-11</td>
+                <td>5 points</td>
+              </tr>
+              <tr>
+                <td>Raw Score 12-16</td>
+                <td>8 points</td>
+              </tr>
+              <tr>
+                <td>Raw Score 17-20</td>
+                <td>13 points</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+
+      
+      
+    </div>
+
+    <div class="alert alert-warning text-center" role="alert">
+      Buy me coffee: 0xeea28375e8Fc20689aC6608d4C5e00DBf5b8E856 - thanks.up
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+      function calculateTotal(event) {
+          event.preventDefault(); // Prevent form submission
+          
+          const implementation = parseFloat(document.getElementById('implementation').value) || 0;
+          const risk = parseFloat(document.getElementById('risk').value) || 0;
+          const performance = parseFloat(document.getElementById('performance').value) || 0;
+          const security = parseFloat(document.getElementById('security').value) || 0;
+          const scalability = parseFloat(document.getElementById('scalability').value) || 0;
+          const coverage = parseFloat(document.getElementById('coverage').value) || 0;
+          const thirdParty = parseFloat(document.getElementById('third-party').value) || 0;
+          const team = parseFloat(document.getElementById('team').value) || 0;
+
+          const total = (implementation + risk) * 0.5 + (performance + security + scalability) * 0.3 + coverage * 0.1 + (thirdParty + team) * 0.1
+
+          const rawScore = Math.ceil(total);
+          let point = 0
+
+          switch (true) {
+            case rawScore >= 1 && rawScore <= 2:
+              point = 1
+              break;
+            case rawScore >= 3 && rawScore <= 4:
+              point = 2
+              break;
+            case rawScore >= 5 && rawScore <= 7:
+              point = 3
+              break;
+            case rawScore >= 8 && rawScore <= 11:
+              point = 5
+              break;
+            case rawScore >= 12 && rawScore <= 16:
+              point = 8
+              break;
+            case rawScore >= 17 && rawScore <= 20:
+              point = 13
+              break;
+            default:
+              point = 0
+              break;
+          }
+          
+          // // Alert the total points
+          // alert('Total Points: ' + rawScore + ' Points: ' + point);
+
+
+        // Display the result in the 'result' label
+        document.getElementById('result').textContent = `Total Points: ${point}`;
+        document.getElementById('score').textContent = `Raw Score: ${rawScore}`;
+      }
+
+       // Clear form inputs and reset result when the Clear button is clicked
+    function clearForm() {
+        // Reset input fields
+        const inputs = document.querySelectorAll('.score-form input[type="number"]');
+        inputs.forEach(input => input.value = 0);
+        
+        // Reset result display
+        document.getElementById('result').textContent = 'Total Points: 0';
+        document.getElementById('score').textContent = 'Raw Score: 0';
+    }
+
+    // Attach the 'calculateTotal' function to the form submission event
+    document.querySelector('.score-form').addEventListener('submit', calculateTotal);
+    
+    // Attach the 'clearForm' function to the clear button click event
+    document.getElementById('clear-btn').addEventListener('click', clearForm);
+
+    // Attach the 'clearForm' function to the Esc key press
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            clearForm();
+        }
+    });
+
+  </script>
+</body>
+</html>
